@@ -3,7 +3,7 @@
     padding: 0px;
     background: linear-gradient(0.25turn, #9cb2c4, #2873ff, #5b44dd);
     font-family: 'Bebas Neue', cursive;
-    font-size: 75px;
+    font-size: 90px;
     color: black;
     text-shadow: 1px 2px 4px;
 }
@@ -20,13 +20,13 @@ body {
 .other-head {
     font-family: 'Bebas Neue', cursive;
     padding-left: 50px;
-    font-size: 50px;
+    font-size: 40px;
 }
 
 .third-head {
     font-family: 'Bebas Neue', cursive;
     font-size: 25px;
-    color: rgb(104, 104, 104)
+    color: rgb(0, 0, 0)
 }
  .forecast-banner {
     font-family: 'Bebas Neue', cursive;
@@ -40,13 +40,19 @@ body {
     color: black;
 }
 
+.forecast-title {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 35px;
+}
+
 .forecast-day {
-    background: linear-gradient(.25turn, #9cb2c4, #2873ff, #5b44dd);
+    background: linear-gradient(to left, #9cb2c4, #5b82ca, #5b44dd);
     color: black;
     margin: 4px;
     padding: 8px;
     font-weight: lighter;
     border-radius: 15px;
+    box-shadow: 1px 1px;
 }
 
 .ficon {
@@ -55,9 +61,10 @@ body {
 
 .current-condition {
     margin: 10px;
-    background: linear-gradient(.25turn, #9cb2c4, #2873ff, #5b44dd);
+    background: linear-gradient(.25turn, #2873ff, #5b44dd, #7d9cb6);
     border: 0px;
     border-radius: 15px;
+    box-shadow: 2px 2px;
 }
 
 input {
@@ -74,25 +81,26 @@ button {
     padding-bottom: 3px;
     padding-left: 10px;
     padding-right: 10px;
+    border-radius: 7px;
 }
 
 button:active {
-    background-color: rgb(104, 104, 104);
+    background-color: rgb(39, 12, 83);
 }
 
 button:hover {
-    background-color: rgb(104, 104, 104);
+    background-color: rgb(47, 4, 66);
 }
 
 .list-group-item {
-    background-color: rgb(13, 189, 57);
+    background-color: rgb(47, 4, 66);
     border: none;
     color: whitesmoke;
     border-top-left-radius: 5px;
 }
 
 .clear {
-    background-color: rgb(48, 47, 47); }
+    background-color: rgb(17, 2, 85); }
 
 .clear:active {
     background-color: rgb(48, 47, 47);
