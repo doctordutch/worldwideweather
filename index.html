@@ -1,66 +1,143 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
+<!--head-->
 <head>
+    <title>Weather_Dashboard</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
-    <!-- Style CSS -->
-    <link rel="stylesheet" href="assets/style.css">
-    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="icon" href="/assets/image/nic.jpg">
 </head>
 
+<!--Body-->
 <body>
-    <!-- Jumbotron to display the City name upon search -->
-    <div id="header" class="jumbotron jumbotron-fluid text-container">
-        <h1 id="header-text" class="display-2"></h1>
-        <div id="artist-credit"></div>
-    </div>
+    <header class="jumbotron">
+        <h1 class="display-3"> <i class="fas fa-cloud-sun"></i></i> World Wide Weather <i
+                class="fas fa-cloud-showers-heavy"></i> </h1>
+    </header>
 
-    <!-- Main container for webpage content -->
-    <div id="content" class="container">
-        <div class="row">
-
-            <!-- Left side content with city search box and appended cities -->
-            <div id="content-left" class="col-md-3">
-                <form>
-                    <label for="search-city">Search for a City:</label>
-                    <div class="form-row">
-                        <input id="search-city" class="form-control" name="city" value="Austin"></input>
-                        <!-- fontawesome magnifying glass -->
-                        <button id="search-button" class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
+    <div class="container">
+        <div class=" row">
+            <!-- City Search sidebar -->
+            <div class="col-sm-3 bg-light container" id="sidebar">
+                <!-- search bar -->
+                <h6 id="search-header">Search for a City:</h6>
+                <div class="col-sm-10 input-group">
+                    <!-- search input -->
+                    <input class="form-control  " id="cityenter" type="text" placeholder="city name">
+                    <!-- append search button to input -->
+                    <div class="input-group-append">
+                        <button class="btn   buttonsearch" type="button">
+                            <i class="fas fa-search"></i></button>
                     </div>
-                </form>
-                <div id="search-error"></div>
-                <!-- list of prior searched cities -->
-                <ul id="city-results" class="list-group mt-4"></ul>
-                <!-- clear storage button -->
-                <a id="clear-storage" href="#"></a>    
+                </div>
+                <br>
+                <!-- search history-->
+                <div class="card search-history ">
+                    <ul class="list-group ">
+                        <section>
+                            <button id="search0"></button>
+                            <button id="search1"></button>
+                            <button id="search2"></button>
+                            <button id="search3"></button>
+                            <button id="search4"></button>
+                            <button id="search5"></button>
+                            <button id="search6"></button>
+                            <button id="search7"></button>
+                            <button id="search8"></button>
+                            <button id="search9"></button>
+                        </section>
+                        <button type="button" class="btn btn-dark shadow-none" id="clearhist">Clear History</button>
+                    </ul>
+                </div>
             </div>
-
-            <!-- Right side content showing current weather and five day forecast displays on search -->
-            <div id="content-right" class="col-md-9 pt-4">
-                <!-- Current weather displayed on top -->
-                <div id="current-weather" class="border rounded"></div>
-                <!-- Five day forecast below the current weather -->
-                <div id="five-day-forecast" class="mt-5"></div>
+            <!-- Main View -->
+            <div class="col-sm-8">
+                <!-- Current Conditionions View -->
+                <div class="container">
+                    <div class="card card-body current-view" id="current-view">
+                        <div class="card-title " id="cityinfos">
+                            <h2 id="namecity">City name :</h2>
+                            <p id="currentdate"></p>
+                            <img id="weathericon">
+                            <h6 class="card-subtitle mb-2 "> Temperature : <span id="tempcity"></span></h6>
+                            <hr>
+                            <h6 class="card-subtitle mb-2 ">Humidity : <span id="humcity"></span></h6>
+                            <hr>
+                            <h6 class="card-subtitle mb-2 "> Wind Speed : <span id="windspeed"></span></h6>
+                            <hr>
+                            <h6 class="card-subtitle mb-2"> UV Index : <span id="uv-index"></span></h6>
+                        </div>
+                    </div>
+                    <!-- 5 Day Forecast -->
+                    <!-- Dates and weather stats dynamically set -->
+                    <div id="five-day">
+                        <h5>5 Days Forecast</h5>
+                        <div class="row">
+                            <div class="col-sm">
+                                <div class="card  five-cards">
+                                    <!-- id's are numbered 0-4 to make loop easier, see script.js -->
+                                    <div class="card-title" id="day0">Date</div>
+                                    <img class="icons" id="icon0">
+                                    <p id="highday0">High:</p>
+                                    <p id="lowday0">Low:</p>
+                                    <p id="humday0">Humidity:</p>
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="card  five-cards">
+                                    <div class="card-title" id="day1">Date</div>
+                                    <img class="icons" id="icon1">
+                                    <p id="highday1">High:</p>
+                                    <p id="lowday1">Low:</p>
+                                    <p id="humday1">Humidity:</p>
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="card  five-cards">
+                                    <div class="card-title" id="day2">Date</div>
+                                    <img class="icons" id="icon2">
+                                    <p id="highday2">High:</p>
+                                    <p id="lowday2">Low:</p>
+                                    <p id="humday2">Humidity:</p>
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="card  five-cards">
+                                    <div class="card-title" id="day3">Date</div>
+                                    <img class="icons" id="icon3">
+                                    <p id="highday3">High:</p>
+                                    <p id="lowday3">Low:</p>
+                                    <p id="humday3">Humidity:</p>
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="card  five-cards">
+                                    <div class="card-title" id="day4">Date</div>
+                                    <img class="icons" id="icon4">
+                                    <p id="highday4">High:</p>
+                                    <p id="lowday4">Low:</p>
+                                    <p id="humday4">Humidity:</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <!-- moment.js -->
+    <!-- jquery, jquery ui, moment.js, my script.js -->
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"
+        integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+        integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <!-- Custom Script -->
-    <script src="assets/script.js"></script>
-    
+    <script src="./assets/script.js"></script>
+
 </body>
+
 </html>
